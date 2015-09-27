@@ -8,9 +8,9 @@ Section 3 combines the data tables to create the final set. It uses cbind to mak
 
 Section 4 uses a grepl() search on the variable names of the AllData2 table to find the columns we want. 
   Note 1: grep() will work, but returns warnings.
-  Note 2: ActivityIDNumber, Activity, and SubjectIDNumber are *explicity* searched for exactly as spelled because I want those in the final working.
-Finally, DesiredData is the resulting data frame
+  Note 2: ActivityIDNumber, Activity, and SubjectIDNumber are *explicity* searched for exactly as spelled because I want those in the final working data set.
+Finally, DesiredData is created from the resulting table
 
-Section 5 reads and adjusts the variable names to something HUMAN READABLE AND UNDERSTANDABLE. I also left a row and column counter in there for my own convenience so I can be sure it is working as expected. This does not affect the output.
+Section 5 reads and adjusts the variable names using a search and replace to something HUMAN READABLE AND UNDERSTANDABLE. I also left a row and column counter in there for my own convenience so I can be sure it is working as expected. This does not affect the output.
 
 Section 6 is where the big transformation happens. The aggregate() function is used to calculate the mean values per each ActivityIDNumber and SubjectIDNumber. The Activity field is first stripped off, and then later re-added with merge(). If this is not done, it will duplicate for some reason. Finally, the data set is sorted by ActivityIDNumber and then SubjectIDNumber, and then written out to a text file.
